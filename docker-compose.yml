@@ -10,10 +10,6 @@ services:
       - db
     environment:
       - DATABASE_HOST=db
-    env_file:
-      - ../env/al.env
 
   db:
     image: postgres:12.0-alpine
-    env_file:
-      - ../env/al.env

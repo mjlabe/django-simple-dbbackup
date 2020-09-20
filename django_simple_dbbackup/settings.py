@@ -57,11 +57,20 @@ USE_L10N = True
 
 USE_TZ = True
 
+CRON_CLASSES = [
+    "simple_dbbackup.cron.HealthCheck",
+    "simple_dbbackup.cron.DailyBackup",
+    "simple_dbbackup.cron.WeeklyBackup",
+    "simple_dbbackup.cron.MonthlyBackup",
+]
+
 DBBACKUP_STORAGE = 'django.core.files.storage.FileSystemStorage'
 DBBACKUP_STORAGE_OPTIONS = {'location': '/home/backup/'}
 
 BACKUP_MEDIA = False
-DAILY_BACKUP = []
-WEEKLY_BACKUP = {}
-MONTHLY_BACKUP = {}
-HEALTH_CHECK = 10
+BACKUP_CLEAN = False
+
+BACKUP_DAILY = []
+BACKUP_WEEKLY = {}
+BACKUP_MONTHLY = {}
+BACKUP_HEALTH_CHECK = 10
