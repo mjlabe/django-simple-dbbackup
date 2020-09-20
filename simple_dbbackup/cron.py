@@ -59,3 +59,12 @@ class MonthlyBackup(CronJobBase):
                     'mediabackup', '--clean')
 
                 print('Monthly Backup Complete')
+
+
+class HealthCheck(CronJobBase):
+    if settings.HEALTH_CHECK:
+        schedule = Schedule(run_every_mins=settings.HEALTH_CHECK)
+        code = 'simple_backup.health_cron_job'    # a unique code
+
+    def do(self):
+        print('Health Check OK')

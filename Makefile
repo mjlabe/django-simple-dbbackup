@@ -1,4 +1,4 @@
-VERSION:=0.1
+VERSION:=latest
 
 CONTAINER_NAME:=django-simple-dbbackup:$(VERSION)
 
@@ -8,11 +8,11 @@ CONTEXT:=default
 
 .PHONY: build
 build:
-	docker build -t $(CONTAINER_NAME) .
+	docker build --rm -t $(CONTAINER_NAME) .
 
 .PHONY: build-no-cache
 build-no-cache:
-	docker build --no-cache -t $(CONTAINER_NAME) .
+	docker build --rm --no-cache -t $(CONTAINER_NAME) .
 
 .PHONY: save
 save:
