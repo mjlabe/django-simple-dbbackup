@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 import os
 from pathlib import Path
 
+from backup_settings import *
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -105,12 +108,9 @@ USE_L10N = True
 USE_TZ = True
 
 DBBACKUP_STORAGE = 'django.core.files.storage.FileSystemStorage'
-DBBACKUP_STORAGE_OPTIONS = {'location': os.environ.get("DBBACKUP_STORAGE_OPTIONS", '/home/backup/')}
-DBBACKUP_CLEANUP_KEEP = os.environ.get("DBBACKUP_CLEANUP_KEEP", 30)
-DBBACKUP_CLEANUP_KEEP_MEDIA = os.environ.get("DBBACKUP_CLEANUP_KEEP_MEDIA", 30)
+DBBACKUP_STORAGE_OPTIONS = '/home/backup/'
 
-BACKUP_MEDIA = os.environ.get("BACKUP_MEDIA", False)
-
-DAILY_BACKUP_TIMES = os.environ.get("DAILY_BACKUP_TIMES", None)
-WEEKLY_BACKUP_DATE_TIMES = os.environ.get("WEEKLY_BACKUP_DATE_TIMES", None)
-MONTHLY_BACKUP_DATE_TIMES = os.environ.get("MONTHLY_BACKUP_DATE_TIMES", None)
+BACKUP_MEDIA = False
+DAILY_BACKUP = []
+WEEKLY_BACKUP = {}
+MONTHLY_BACKUP = {}

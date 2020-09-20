@@ -259,8 +259,8 @@ dwsync.xml
 intermediate
 publish
 .idea
-celerybeat.pid
-celerybeat-schedule
+/backup_settings.py
+/django-simple-dbbackup-0.1.tar
 
 # build script local files
 web/build/buildinfo.properties
