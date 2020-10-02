@@ -10,6 +10,7 @@ services:
       - db
     environment:
       - DATABASE_HOST=db
+      - PGPASSFILE=/home/.pgpass
 
   db:
     image: postgres:12.0-alpine

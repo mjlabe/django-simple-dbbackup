@@ -34,6 +34,13 @@ DATABASE_USER
 DATABASE_HOST
 ```
 
-Mount `.pgpass` file to... TBD after I get the cron to run.
+Create `.pgpass` file to in the project root directory with the following format and permissions:
+
+```
+# .pgpass
+host:5432:somedb:someuser:somepass
+```
+
+`sudo chmod 600 .pgpass`
 
 Run `make build` then `make run`
